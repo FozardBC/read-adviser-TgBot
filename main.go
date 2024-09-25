@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log"
 	tgClient "main/clients/telegram"
 	event_consumer "main/consumer/event-consumer"
@@ -16,10 +17,8 @@ const (
 
 func main() {
 
-	token := "7227580752:AAGqsim4fWUv_rWH9GI4hSV08bnBMPa0WwY"
-
 	eventsProcessor := telegram.New(
-		tgClient.New(tgBotHost, token),
+		tgClient.New(tgBotHost, mustToken()),
 		files.New(storagePath),
 	)
 
@@ -33,7 +32,7 @@ func main() {
 
 }
 
-/* func mustToken() string {
+func mustToken() string {
 	token := flag.String("token",
 		"",
 		"token for access to tg bot")
@@ -46,4 +45,3 @@ func main() {
 
 	return *token
 }
-*/
