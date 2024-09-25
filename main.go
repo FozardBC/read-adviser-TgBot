@@ -18,7 +18,7 @@ const (
 func main() {
 
 	eventsProcessor := telegram.New(
-		tgClient.New(tgBotHost, mustToken()),
+		tgClient.New(tgBotHost, mustTokeN()),
 		files.New(storagePath),
 	)
 
@@ -32,7 +32,7 @@ func main() {
 
 }
 
-func mustToken() string {
+func mustTokeN() string {
 	token := flag.String("token",
 		"",
 		"token for access to tg bot")
